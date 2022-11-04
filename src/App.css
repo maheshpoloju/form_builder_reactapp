@@ -1,38 +1,197 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.create-form-heading {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+@media screen and (max-width: 768px) {
+  .create-form-heading {
+    font-size: 16px;
+  }
+}
+.available-types-container {
+  display: flex;
+  align-items: center;
+}
+.available-label {
+  margin-right: 10px;
+}
+.create-form-type-field {
+  height: 40px;
+  width: 260px;
+}
+@media screen and (max-width: 768px) {
+  .create-form-type-field {
+    height: 35px;
+    width: 155px;
+  }
+}
+.form-type {
+  font-size: 18px;
+}
+.form-type-create-button {
+  height: 40px;
+  width: 90px;
+  margin-left: 10px;
+  color: #fff;
+  background-color: #5adbb5;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .form-type-create-button {
+    height: 35px;
+    width: 70px;
+    margin-right: 8px;
+  }
+  .new-form-type-create-button {
+    margin-top: 10px;
+  }
+}
+.new-field-button {
+  height: 40px;
+  width: 160px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #fff;
+  background-color: #973741;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .new-field-button {
+    height: 35px;
+    width: 140px;
+  }
+}
+.form-title-container {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  width: 60%;
+  margin-top: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-title {
+  font-size: 20px;
+  justify-self: center;
+  text-align: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 768px) {
+  .form-title-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 95%;
   }
-  to {
-    transform: rotate(360deg);
+  .form-title {
+    font-size: 16px;
+    position: absolute;
+    left: 0;
   }
+}
+.form-title-change-button {
+  height: 30px;
+  width: 90px;
+  margin-left: 10px;
+  color: #fff;
+  background-color: #676d0d;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+@media screen and (max-width: 768px) {
+  .form-title-change-button {
+    width: 75px;
+  }
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 60%;
+  height: 500px;
+  overflow-y: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: 95%;
+    overflow-x: auto;
+    margin-top: 15px;
+  }
+}
+.input-filed-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.form-label {
+  margin-right: 10px;
+}
+.input-field {
+  height: 40px;
+  width: 260px;
+}
+@media screen and (max-width: 768px) {
+  .input-filed-container {
+    flex-direction: column;
+  }
+  .form-label {
+    align-self: start;
+  }
+  .input-field {
+    height: 35px;
+    width: 220px;
+    margin-top: 10px;
+  }
+}
+.new-form-fields-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+}
+@media screen and (max-width: 768px) {
+  .new-form-fields-container {
+    flex-direction: column;
+  }
+}
+.new-form-title-field {
+  margin-left: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  width: 260px;
+}
+@media screen and (max-width: 768px) {
+  .new-form-title-field {
+    height: 30px;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    margin-left: 0;
+  }
+}
+.save-button-container {
+  display: flex;
+  justify-content: center;
+}
+.form-save-button {
+  height: 40px;
+  width: 90px;
+  color: #fff;
+  background-color: #2088f0;
+  border: none;
+  cursor: pointer;
 }
