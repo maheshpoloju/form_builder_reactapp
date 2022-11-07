@@ -105,9 +105,8 @@ function FormCreate() {
     e.preventDefault();
   };
   const handleFormSave = async () => {
-    console.log("formFieldData---------------", formFieldData);
     const data = { formData: formFieldData, formTitle: formTitle };
-    console.log("data---------------", data);
+    setFormFieldData([]);
     const url = "http://localhost:8080/api/form/create";
     const options = {
       method: "POST",
@@ -119,14 +118,14 @@ function FormCreate() {
     };
     const postDataResponse = await fetch(url, options);
 
-    // console.log("postDataResponse", postDataResponse);
+    console.log("formFieldData", formFieldData);
   };
 
   const handleDeleteInput = (id) => {
     const tempData = formFieldData.filter((each) => each.id !== id);
     setFormFieldData(tempData);
   };
-  // console.log(formFieldData);
+  console.log(formFieldData);
   return (
     <div className="App">
       <h1 className="create-form-heading">Create a Form</h1>

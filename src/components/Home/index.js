@@ -5,6 +5,9 @@ import "./index.css";
 function Home() {
   const [formsData, setFormsData] = useState([]);
   const [formTitle, setFormTitle] = useState("");
+  const [formID, setFormID] = useState("");
+  let formCount = 0;
+
   const fetchFormData = async () => {
     const url = "http://localhost:8080/api/";
     const options = {
@@ -14,6 +17,7 @@ function Home() {
     const fetchResponse = await fetch(url, options);
     const data = await fetchResponse.json();
 
+    // console.log(data);
     setFormsData(data);
   };
 
@@ -25,22 +29,28 @@ function Home() {
   const handleCreateForm = () => {
     navigate("/form/create");
   };
+  const handleEditForm = (id) => {
+    navigate(`/form/edit/${id}`);
+  };
 
   return (
     <div className="form-options-container">
       <button onClick={handleCreateForm} className="form-create-button">
         Create Form
       </button>
-      <div>
+      <div className="forms-data-container">
         <h1 className="forms-data-heading">Forms Data</h1>
         {formsData &&
-          formsData.map((data) => {
-            const { formData, formTitle } = data;
-            console.log("formData", formData);
+          formsData.map((data, i) => {
+            const { formData, formTitle, _id } = data;
+            formCount += 1;
+            // console.log(formData);
             return (
               <>
-                <h1>{formTitle && formTitle}</h1>
-                <div className="view-form-container">
+                <h1 className="view-form-title">
+                  {formTitle && `${formCount}. ${formTitle}`}
+                </h1>
+                <div className="view-form-container" key={i}>
                   <form className="view-form">
                     {formData &&
                       formData.map((each, index) => {
@@ -51,9 +61,10 @@ function Home() {
                           >
                             <label
                               className="view-form-label"
-                              htmlFor={each.id}
+                              htmlFor={each._id}
                             >
-                              {each.label}
+                              {/* {each.label} */}
+                              {each.type}
                             </label>
                             <input
                               placeholder={each.placeholder}
@@ -65,6 +76,14 @@ function Home() {
                         );
                       })}
                   </form>
+                  <div>
+                    <button
+                      onClick={() => handleEditForm(_id)}
+                      className="form-edit-button"
+                    >
+                      Edit Form
+                    </button>
+                  </div>
                 </div>
               </>
             );

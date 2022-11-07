@@ -1,0 +1,140 @@
+.edit-forms-heading {
+  text-align: center;
+  font-size: 24px;
+}
+@media screen and (max-width: 768px) {
+  .edit-forms-heading {
+    font-size: 14px;
+  }
+}
+.edit-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 1100px;
+  height: 400px;
+  overflow-y: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .edit-form-container {
+    width: 300px;
+    overflow-x: auto;
+    margin-top: 15px;
+  }
+}
+
+.edit-forms-data-heading {
+  text-align: center;
+  font-size: 24px;
+}
+.view-form-title {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .edit-forms-data-heading {
+    font-size: 14px;
+  }
+  .view-form-title {
+    font-size: 14px;
+  }
+}
+.edit-input-filed-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.edit-form-label {
+  margin-right: 10px;
+  width: 70px;
+}
+.edit-input-field {
+  height: 40px;
+  width: 260px;
+}
+@media screen and (max-width: 768px) {
+  .edit-input-filed-container {
+    flex-direction: column;
+  }
+  .edit-form-label {
+    align-self: start;
+  }
+  .edit-input-field {
+    height: 35px;
+    width: 220px;
+    margin-top: 10px;
+  }
+}
+.edit-form-save-button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.edit-form-save-button {
+  height: 40px;
+  width: 90px;
+  color: #fff;
+  background-color: #2088f0;
+  border: none;
+  border-radius: 6px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .edit-form-save-button {
+    height: 35px;
+    width: 90px;
+  }
+}
+.edit-input-button {
+  height: 40px;
+  width: 90px;
+  color: #fff;
+  background-color: #d6ae0f;
+  margin-left: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .edit-input-button {
+    height: 35px;
+    width: 90px;
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+}
+.edit-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-edit-form-fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+}
+@media screen and (max-width: 768px) {
+  .new-edit-form-fields-container {
+  }
+}
+.new-edit-input-field {
+  margin-left: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  width: 260px;
+}
+@media screen and (max-width: 768px) {
+  .new-edit-input-field {
+    height: 30px;
+    width: 200px;
+  }
+}

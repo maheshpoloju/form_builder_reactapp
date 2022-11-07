@@ -126,7 +126,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .form-container {
     width: 95%;
     overflow-x: auto;
@@ -143,6 +143,7 @@
 }
 .form-label {
   margin-right: 10px;
+  width: 80px;
 }
 .input-field {
   height: 40px;
