@@ -17,7 +17,6 @@ function Home() {
     const fetchResponse = await fetch(url, options);
     const data = await fetchResponse.json();
 
-    // console.log(data);
     setFormsData(data);
   };
 
@@ -44,7 +43,7 @@ function Home() {
           formsData.map((data, i) => {
             const { formData, formTitle, _id } = data;
             formCount += 1;
-            // console.log(formData);
+
             return (
               <>
                 <h1 className="view-form-title">

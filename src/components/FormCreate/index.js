@@ -117,15 +117,13 @@ function FormCreate() {
       body: JSON.stringify(data),
     };
     const postDataResponse = await fetch(url, options);
-
-    console.log("formFieldData", formFieldData);
   };
 
   const handleDeleteInput = (id) => {
     const tempData = formFieldData.filter((each) => each.id !== id);
     setFormFieldData(tempData);
   };
-  console.log(formFieldData);
+
   return (
     <div className="App">
       <h1 className="create-form-heading">Create a Form</h1>

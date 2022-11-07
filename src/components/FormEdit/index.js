@@ -57,13 +57,11 @@ function FormEdit() {
       body: JSON.stringify({ formTypeID, formType }),
     };
     const postDataResponse = await fetch(url, options);
-    // .then((response) => response.json())
-    // .then(({ data: formsData }) => getFormData());
-  };
-  const handleFormSave = (formTypeID) => {
-    setShowEditFormFields(false);
   };
 
+  const handleBackButton = () => {
+    setShowEditFormFields(false);
+  };
   return (
     <div>
       <h1 className="edit-forms-heading">Edit Form</h1>
@@ -104,9 +102,15 @@ function FormEdit() {
                     </div>
                     <button
                       onClick={() => handleEditInputSave(each._id)}
-                      className="form-type-create-button new-form-type-create-button"
+                      className="new-form-type-create-button"
                     >
                       Save
+                    </button>
+                    <button
+                      onClick={handleBackButton}
+                      className="new-form-type-create-button go-back-button"
+                    >
+                      Back
                     </button>
                   </div>
                 )
@@ -114,7 +118,6 @@ function FormEdit() {
                 <div className="edit-div">
                   <div className="edit-input-filed-container" key={index}>
                     <label className="edit-form-label" htmlFor={each._id}>
-                      {/* {each.label} */}
                       {each.type}
                     </label>
                     <input
@@ -130,14 +133,6 @@ function FormEdit() {
                       Edit
                     </button>
                   </div>
-                  {/* <div className="edit-form-save-button-container">
-                    <button
-                      onClick={() => handleFormSave(each._id)}
-                      className="edit-form-save-button"
-                    >
-                      Save Form
-                    </button>
-                  </div> */}
                 </div>
               );
             })}
