@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 const formOptions = [
@@ -38,14 +39,14 @@ function FormCreate() {
   const [formType, setFormType] = useState(formOptions[0].type);
   const [formFieldData, setFormFieldData] = useState([]);
   const [showNewformFields, setShowNewformFields] = useState(false);
-  const [isFormTitleChangeClicked, setIsFormTitleChangeClicked] = useState(
-    false
-  );
+  const [isFormTitleChangeClicked, setIsFormTitleChangeClicked] =
+    useState(false);
   const [formTitle, setFormTitle] = useState("Form title here");
   const [newFormTitle, setNewFormTitle] = useState("");
   const [newFormType, setNewFormType] = useState("");
   const [newFormTypeLabel, setNewFormTypeLabel] = useState("");
   const [newFormTypePlaceholder, setNewFormTypePlaceholder] = useState("");
+  const navigate = useNavigate();
 
   const handleFormType = (e) => {
     setFormType(e.target.value);
@@ -116,7 +117,8 @@ function FormCreate() {
       },
       body: JSON.stringify(data),
     };
-    const postDataResponse = await fetch(url, options);
+    await fetch(url, options);
+    navigate("/");
   };
 
   const handleDeleteInput = (id) => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./index.css";
 
@@ -11,8 +11,9 @@ function FormEdit() {
   const [formType, setFormType] = useState("");
   const [formLabel, setFormLabel] = useState("");
   const [formPlaceholder, setFormPlaceholder] = useState("");
-
   let { id } = useParams();
+  const navigate = useNavigate();
+  const [selectedFormObj, setSelectedFormObj] = useState({});
 
   const getFormData = async () => {
     const url = `http://localhost:8080/api/form/edit/${id}`;
@@ -29,7 +30,7 @@ function FormEdit() {
   };
   useEffect(() => {
     getFormData();
-  }, [formsData]);
+  }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -54,9 +55,17 @@ function FormEdit() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ formTypeID, formType }),
+      body: JSON.stringify({
+        formTypeID,
+        editData: {
+          formType: formType || selectedFormObj?.type,
+          formLabel: formLabel || selectedFormObj?.type,
+          formPlaceholder: formPlaceholder || selectedFormObj?.type,
+        },
+      }),
     };
-    const postDataResponse = await fetch(url, options);
+    await fetch(url, options);
+    navigate("/");
   };
 
   const handleBackButton = () => {
@@ -79,7 +88,7 @@ function FormEdit() {
                         onChange={(e) => setFormType(e.target.value)}
                         className="new-edit-input-field"
                         type="text"
-                        placeholder="Enter type"
+                        placeholder={each.type}
                       />
                     </div>
                     <div>
@@ -88,7 +97,7 @@ function FormEdit() {
                         onChange={(e) => setFormLabel(e.target.value)}
                         className="new-edit-input-field"
                         type="text"
-                        placeholder="Enter label"
+                        placeholder={each.label}
                       />
                     </div>
                     <div>
@@ -97,7 +106,7 @@ function FormEdit() {
                         onChange={(e) => setFormPlaceholder(e.target.value)}
                         className="new-edit-input-field"
                         type="text"
-                        placeholder="Enter placeholder"
+                        placeholder={each.placeholder}
                       />
                     </div>
                     <button
@@ -127,7 +136,10 @@ function FormEdit() {
                       type={each.type}
                     />
                     <button
-                      onClick={() => handleEditInput(each._id)}
+                      onClick={() => {
+                        handleEditInput(each._id);
+                        setSelectedFormObj(each);
+                      }}
                       className="edit-input-button"
                     >
                       Edit
