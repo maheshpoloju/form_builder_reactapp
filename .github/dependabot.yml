@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "fix"
+    versioning-strategy: "increase"
+    ignore:
+      - dependency-name: "*"
+        versions:
+          - "< 1.0.0"
